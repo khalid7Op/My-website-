@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameSphere 2025 - Ultimate Gaming News</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #6a5acd;
+            --secondary: #ff4500;
+            --dark: #1a1a2e;
+            --light: #e6e6fa;
+            --accent: #00ff99;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            padding: 20px 0;
+            border-bottom: 4px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2.5rem;
+            text-align: center;
+            color: white;
+            text-shadow: 3px 3px 0 var(--dark), 6px 6px 0 var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .nav-button {
+            background-color: var(--dark);
+            color: white;
+            border: 2px solid var(--accent);
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-button:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 153, 0.4);
+        }
+        
+        .nav-button.active {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        /* News Cards */
+        .news-card {
+            background: rgba(26, 26, 46, 0.8);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(106, 90, 205, 0.5);
+        }
+        
+        .news-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--secondary);
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .news-category {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .minecraft-tag { background-color: #5cba47; }
+        .assassins-tag { background-color: #c0c0c0; }
+        .pubg-tag { background-color: #f4a261; }
+        .fortnite-tag { background-color: #8b5cf6; }
+        .nintendo-tag { background-color: #e63946; }
+        
+        .read-more {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .read-more:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: rgba(26, 26, 46, 0.8);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 20px;
+            height: fit-content;
+        }
+        
+        .upcoming-games {
+            margin-bottom: 30px;
+        }
+        
+        .game-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dotted var(--primary);
+        }
+        
+        .game-icon {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 2px solid var(--accent);
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        
+        .game-info h4 {
+            margin-bottom: 5px;
+            color: var(--accent);
+        }
+        
+        .game-info p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Article Page */
+        .article-container {
+            max-width: 800px;
+            margin: 30px auto;
+        }
+        
+        .full-article {
+            background: rgba(26, 26, 46, 0.8);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .article-title {
+            font-size: 2rem;
+            margin: 20px 0;
+            color: var(--accent);
+        }
+        
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        
+        .article-image {
+            width: 100%;
+            height: auto;
+            min-height: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .article-content {
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .article-content h2 {
+            color: var(--accent);
+            margin: 20px 0 10px;
+        }
+        
+        .article-inline-image {
+            max-width: 100%;
+            height: auto;
+            min-height: 200px;
+            border-radius: 5px;
+            margin: 15px 0;
+            display: block;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .article-highlight {
+            background: rgba(106, 90, 205, 0.2);
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--primary);
+        }
+        
+        .tags a {
+            display: inline-block;
+            background: rgba(106, 90, 205, 0.3);
+            padding: 5px 10px;
+            border-radius: 15px;
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .social-share a {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 1.2rem;
+            color: var(--light);
+            transition: color 0.3s;
+        }
+        
+        .social-share a:hover {
+            color: var(--accent);
+        }
+        
+        /* Comments Section */
+        .comments-section {
+            background: rgba(26, 26, 46, 0.8);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 30px;
+        }
+        
+        .comments-section h3 {
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .comment-form textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid var(--primary);
+            background: rgba(26, 26, 46, 0.5);
+            color: var(--light);
+            margin-bottom: 15px;
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .submit-comment {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-comment:hover {
+            background-color: var(--secondary);
+        }
+        
+        .comment {
+            display: flex;
+            margin: 20px 0;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(106, 90, 205, 0.3);
+        }
+        
+        .comment-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid var(--accent);
+            background-color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .comment-author {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        /* Login Page */
+        .login-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px auto;
+            gap: 30px;
+        }
+        
+        .login-box {
+            flex: 1;
+            max-width: 500px;
+            background: rgba(26, 26, 46, 0.8);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 40px;
+        }
+        
+        .login-box h2 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .login-box p {
+            margin-bottom: 30px;
+            color: #aaa;
+        }
+        
+        .login-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .login-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .login-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .google-btn {
+            background-color: #4285F4;
+            color: white;
+        }
+        
+        .facebook-btn {
+            background-color: #3b5998;
+            color: white;
+        }
+        
+        .x-btn {
+            background-color: #000000;
+            color: white;
+        }
+        
+        .divider {
+            position: relative;
+            margin: 30px 0;
+            text-align: center;
+            color: #aaa;
+        }
+        
+        .divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(106, 90, 205, 0.5);
+            z-index: -1;
+        }
+        
+        .divider span {
+            background: var(--dark);
+            padding: 0 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #aaa;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 5px;
+            border: 1px solid var(--primary);
+            background: rgba(26, 26, 46, 0.5);
+            color: var(--light);
+        }
+        
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .form-options a {
+            color: #aaa;
+            transition: color 0.3s;
+        }
+        
+        .form-options a:hover {
+            color: var(--accent);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        .signup-link {
+            margin-top: 20px;
+            text-align: center;
+            color: #aaa;
+        }
+        
+        .signup-link a {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .login-benefits {
+            flex: 1;
+            max-width: 500px;
+            background: rgba(26, 26, 46, 0.8);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 40px;
+        }
+        
+        .login-benefits h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .login-benefits ul {
+            list-style: none;
+        }
+        
+        .login-benefits li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .login-benefits i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .popup-content {
+            background: var(--dark);
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+        
+        .close-popup {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .popup-message {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .popup-loader {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .loader {
+            border: 5px solid rgba(106, 90, 205, 0.3);
+            border-top: 5px solid var(--accent);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .success-message i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .popup-action-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .popup-action-btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--primary), var(--dark));
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .footer-logo {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Page Transitions */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .login-container {
+                flex-direction: column;
+            }
+            
+            .login-box, .login-benefits {
+                max-width: 100%;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .nav-button {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Loading Screen */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+            transition: opacity 0.5s;
+        }
+        
+        .loading-logo {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 0 var(--secondary);
+        }
+        
+        .loading-bar {
+            width: 200px;
+            height: 20px;
+            border: 3px solid var(--light);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .loading-progress {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            animation: load 2s ease-in-out forwards;
+        }
+        
+        @keyframes load {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loadingScreen">
+        <div class="loading-logo">GAMESPERE 2025</div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" id="socialPopup">
+        <div class="popup-content">
+            <button class="close-popup">&times;</button>
+            <h3 id="popupTitle">Social Login</h3>
+            <div class="popup-message">
+                <p id="popupMessage">You would now be redirected to the social platform for authentication.</p>
+                <div class="popup-loader">
+                    <div class="loader"></div>
+                    <p>Redirecting...</p>
+                </div>
+            </div>
+            <button class="popup-action-btn">Continue</button>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div class="page active" id="homePage">
+        <header>
+            <div class="container">
+                <h1 class="logo">GAMESPERE 2025</h1>
+                <p class="tagline">YOUR PORTAL TO THE FUTURE OF GAMING</p>
+                
+                <nav>
+                    <a href="#" class="nav-button active" data-page="homePage">HOME</a>
+                    <a href="#" class="nav-button" data-page="newsPage">NEWS</a>
+                    <a href="#" class="nav-button" data-page="loginPage">LOGIN</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="main-content">
+                <div class="featured-news">
+                    <h2 class="section-title">BREAKING NEWS</h2>
+                    
+                    <div class="news-card">
+                        <div class="news-image">Minecraft 2.0 Announcement Image</div>
+                        <div class="news-content">
+                            <span class="news-category minecraft-tag">MINECRAFT</span>
+                            <h3 class="news-title">Minecraft 2.0 Officially Announced</h3>
+                            <div class="news-meta">
+                                <span><i class="far fa-calendar-alt"></i> June 15, 2025</span>
+                                <span><i class="far fa-comments"></i> 342 Comments</span>
+                            </div>
+                            <p class="news-excerpt">Microsoft and Mojang have finally revealed Minecraft 2.0, the long-awaited sequel to the block-building phenomenon...</p>
+                            <a href="#" class="read-more" data-page="articleMinecraft">READ MORE <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="news-card">
+                        <div class="news-image">PUBG Championship Image</div>
+                        <div class="news-content">
+                            <span class="news-category pubg-tag">PUBG</span>
+                            <h3 class="news-title">PUBG Global Championship 2025</h3>
+                            <div class="news-meta">
+                                <span><i class="far fa-calendar-alt"></i> June 10, 2025</span>
+                                <span><i class="far fa-comments"></i> 189 Comments</span>
+                            </div>
+                            <p class="news-excerpt">Krafton has revealed details for this year's PUBG Global Championship, featuring the largest prize pool in battle royale history...</p>
+                            <a href="#" class="read-more" data-page="articlePubg">READ MORE <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar">
+                    <div class="upcoming-games">
+                        <h2 class="section-title">UPCOMING RELEASES</h2>
+                        
+                        <div class="game-item">
+                            <div class="game-icon">MC</div>
+                            <div class="game-info">
+                                <h4>Minecraft 2.0</h4>
+                                <p>September 23, 2025</p>
+                            </div>
+                        </div>
+                        
+                        <div class="game-item">
+                            <div class="game-icon">AC</div>
+                            <div class="game-info">
+                                <h4>Assassin's Creed: Legacy</h4>
+                                <p>November 11, 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-logo">GAMESPERE</div>
+                <div class="copyright">© 2025 GameSphere. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- News Page -->
+    <div class="page" id="newsPage">
+        <header>
+            <div class="container">
+                <h1 class="logo">GAMESPERE 2025</h1>
+                <p class="tagline">YOUR PORTAL TO THE FUTURE OF GAMING</p>
+                
+                <nav>
+                    <a href="#" class="nav-button" data-page="homePage">HOME</a>
+                    <a href="#" class="nav-button active" data-page="newsPage">NEWS</a>
+                    <a href="#" class="nav-button" data-page="loginPage">LOGIN</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container">
+            <h2 class="section-title">ALL GAMING NEWS</h2>
+            
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image">Fortnite Chapter 6</div>
+                    <div class="news-content">
+                        <span class="news-category fortnite-tag">FORTNITE</span>
+                        <h3 class="news-title">Fortnite Chapter 6: New Map Revealed</h3>
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar-alt"></i> May 28, 2025</span>
+                            <span><i class="far fa-comments"></i> 245 Comments</span>
+                        </div>
+                        <p class="news-excerpt">Epic Games unveils a completely redesigned map for Fortnite Chapter 6 with dynamic weather systems...</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">Nintendo Switch 2</div>
+                    <div class="news-content">
+                        <span class="news-category nintendo-tag">NINTENDO</span>
+                        <h3 class="news-title">Nintendo Switch 2 Specs Leaked</h3>
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar-alt"></i> May 22, 2025</span>
+                            <span><i class="far fa-comments"></i> 512 Comments</span>
+                        </div>
+                        <p class="news-excerpt">Insider reveals specifications for the upcoming Nintendo Switch 2 console, including 4K support...</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-logo">GAMESPERE</div>
+                <div class="copyright">© 2025 GameSphere. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Article Page - Minecraft -->
+    <div class="page" id="articleMinecraft">
+        <header>
+            <div class="container">
+                <h1 class="logo">GAMESPERE 2025</h1>
+                <p class="tagline">YOUR PORTAL TO THE FUTURE OF GAMING</p>
+                
+                <nav>
+                    <a href="#" class="nav-button" data-page="homePage">HOME</a>
+                    <a href="#" class="nav-button" data-page="newsPage">NEWS</a>
+                    <a href="#" class="nav-button" data-page="loginPage">LOGIN</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container article-container">
+            <article class="full-article">
+                <span class="news-category minecraft-tag">MINECRAFT</span>
+                <h1 class="article-title">Minecraft 2.0 Officially Announced - Release Date Set for Q3 2025</h1>
+                
+                <div class="article-meta">
+                    <span><i class="far fa-user"></i> By John Smith</span>
+                    <span><i class="far fa-calendar-alt"></i> June 15, 2025</span>
+                    <span><i class="far fa-comments"></i> 342 Comments</span>
+                </div>
+                
+                <div class="article-image">Minecraft 2.0 Gameplay Screenshot</div>
+                
+                <div class="article-content">
+                    <p>Microsoft and Mojang have finally revealed Minecraft 2.0, the long-awaited sequel to the block-building phenomenon that took the world by storm over a decade ago. The announcement came during this year's Xbox Games Showcase, accompanied by an impressive gameplay trailer.</p>
+                    
+                    <h2>Revolutionary New Features</h2>
+                    <p>The new version features revolutionary voxel-based physics that allow for more realistic interactions between blocks. Water now flows more naturally, fire spreads according to wind direction, and structures can collapse under their own weight if not properly supported.</p>
+                    
+                    <div class="article-inline-image">Physics Demonstration</div>
+                    
+                    <h2>RTX as Standard</h2>
+                    <p>Perhaps the most noticeable upgrade is the inclusion of RTX support as standard. The game now features ray-traced global illumination, reflections, and shadows that dramatically change the visual experience. Even on lower-end hardware, the game uses advanced upscaling techniques to maintain visual fidelity.</p>
+                    
+                    <div class="article-highlight">
+                        <p>"Minecraft 2.0 isn't just an upgrade - it's a complete reimagining of what a sandbox game can be," said Mojang's creative director. "We've rebuilt the game from the ground up while preserving everything players love about the original."</p>
+                    </div>
+                    
+                    <h2>New Crafting System</h2>
+                    <p>The crafting system has been completely overhauled. Instead of fixed recipes, players can now combine materials in various ways to discover new crafting possibilities. This "chemistry"-like system allows for millions of potential combinations.</p>
+                </div>
+                
+                <div class="article-footer">
+                    <div class="tags">
+                        <span>Tags:</span>
+                        <a href="#">Minecraft</a>
+                        <a href="#">Sandbox</a>
+                        <a href="#">Xbox</a>
+                        <a href="#">Upcoming Games</a>
+                    </div>
+                    
+                    <div class="social-share">
+                        <span>Share:</span>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-reddit"></i></a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <h3>Comments (342)</h3>
+                
+                <div class="comment-form">
+                    <textarea placeholder="Add your comment..."></textarea>
+                    <button class="submit-comment">Post Comment</button>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-avatar">GP</div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <span class="comment-author">GamerPro123</span>
+                            <span class="comment-date">2 hours ago</span>
+                        </div>
+                        <p>This looks amazing! Can't wait to try the new physics system. Hope my PC can handle it though.</p>
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-avatar">BB</div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <span class="comment-author">BlockBuilder</span>
+                            <span class="comment-date">5 hours ago</span>
+                        </div>
+                        <p>The new crafting system sounds revolutionary. I wonder if old worlds will be compatible?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-logo">GAMESPERE</div>
+                <div class="copyright">© 2025 GameSphere. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Login Page -->
+    <div class="page" id="loginPage">
+        <header>
+            <div class="container">
+                <h1 class="logo">GAMESPERE 2025</h1>
+                <p class="tagline">YOUR PORTAL TO THE FUTURE OF GAMING</p>
+                
+                <nav>
+                    <a href="#" class="nav-button" data-page="homePage">HOME</a>
+                    <a href="#" class="nav-button" data-page="newsPage">NEWS</a>
+                    <a href="#" class="nav-button active" data-page="loginPage">LOGIN</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container login-container">
+            <div class="login-box">
+                <h2>Welcome Back, Gamer!</h2>
+                <p>Sign in to access exclusive content, post comments, and customize your news feed.</p>
+                
+                <div class="login-options">
+                    <button class="login-btn google-btn" id="googleLogin">
+                        <i class="fab fa-google"></i> Continue with Google
+                    </button>
+                    
+                    <button class="login-btn facebook-btn" id="facebookLogin">
+                        <i class="fab fa-facebook-f"></i> Continue with Facebook
+                    </button>
+                    
+                    <button class="login-btn x-btn" id="xLogin">
+                        <i class="fab fa-x-twitter"></i> Continue with X
+                    </button>
+                </div>
+                
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+                
+                <form class="email-login">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="••••••••">
+                    </div>
+                    
+                    <div class="form-options">
+                        <label>
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Sign In</button>
+                </form>
+                
+                <div class="signup-link">
+                    Don't have an account? <a href="#">Sign up</a>
+                </div>
+            </div>
+            
+            <div class="login-benefits">
+                <h3>Why Create an Account?</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Save your favorite articles</li>
+                    <li><i class="fas fa-check"></i> Comment on news and interact with others</li>
+                    <li><i class="fas fa-check"></i> Get personalized game recommendations</li>
+                    <li><i class="fas fa-check"></i> Receive exclusive newsletters</li>
+                    <li><i class="fas fa-check"></i> Participate in community events</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-logo">GAMESPERE</div>
+                <div class="copyright">© 2025 GameSphere. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Loading Screen Animation
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingScreen').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+
+        // Page Navigation
+        document.querySelectorAll('[data-page]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+                
+                // Hide all pages
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show selected page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Update active nav button
+                document.querySelectorAll('.nav-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Social Login Simulation
+        document.getElementById('googleLogin').addEventListener('click', function() {
+            showSocialPopup('Google', 'You are being redirected to Google to sign in to your account.');
+        });
+        
+        document.getElementById('facebookLogin').addEventListener('click', function() {
+            showSocialPopup('Facebook', 'You are being redirected to Facebook to sign in to your account.');
+        });
+        
+        document.getElementById('xLogin').addEventListener('click', function() {
+            showSocialPopup('X', 'You are being redirected to X to sign in to your account.');
+        });
+        
+        function showSocialPopup(platform, message) {
+            document.getElementById('popupTitle').textContent = `Sign in with ${platform}`;
+            document.getElementById('popupMessage').textContent = message;
+            document.getElementById('socialPopup').style.display = 'flex';
+            
+            // Simulate successful login after 3 seconds
+            setTimeout(function() {
+                document.querySelector('.popup-message').innerHTML = `
+                    <div class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Successfully signed in with ${platform}!</p>
+                    </div>
+                `;
+                document.querySelector('.popup-action-btn').textContent = 'Go to Dashboard';
+                document.querySelector('.popup-action-btn').onclick = function() {
+                    document.getElementById('socialPopup').style.display = 'none';
+                    alert(`Welcome! You're now logged in with ${platform}.`);
+                };
+            }, 3000);
+        }
+        
+        // Close popup
+        document.querySelector('.close-popup').addEventListener('click', function() {
+            document.getElementById('socialPopup').style.display = 'none';
+        });
+        
+        // Article Comments
+        document.querySelector('.submit-comment')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            const commentText = document.querySelector('.comment-form textarea').value;
+            if (commentText.trim()) {
+                alert('Comment submitted! (In a real app, this would be sent to the server)');
+                document.querySelector('.comment-form textarea').value = '';
+            } else {
+                alert('Please write a comment before submitting');
+            }
+        });
+        
+        // Form Submission
+        document.querySelector('.email-login')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (email && password) {
+                alert(`Login attempt with email: ${email}\n(In a real app, this would validate credentials)`);
+            } else {
+                alert('Please enter both email and password');
+            }
+        });
+    </script>
+</body>
+</html>
